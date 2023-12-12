@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>HomePage</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="stylesheet" href="css/style.min.css?_v=20231212164817">
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<div id="popup" aria-hidden="true" class="popup">
+			<div class="popup__wrapper">
+				<div class="popup__content content-popup">
+					<button data-close type="button" class="popup__close"><img src="img/Х.svg" alt="x"></button>
+					<h6 class="content-popup__title">Залишайте заявку</h3>
+						<p class="content-popup__sub-title">Ми зв’яжемося з вами найближчим часом.</p>
+						<form class="form" action="#">
+							<div class="form__name">
+								<input type="text" name="name" data-error="Error" placeholder="Ваше ім'я?" />
+							</div>
+							<div class="form__phone">
+								<img src="img/Rectangle 799.png" alt="прапор">
+								<input type="tel" name="phone" data-error="Error" placeholder="+380-00-000-00-00*" />
+							</div>
+							<button type="submit" class="form__button button">Відправити</button>
+							<p class="form__confirmation">
+								Натискаючи кнопку “Надіслати”, ви погоджуєтесь з <a href="#"> Правилами обробки персональних даних.</a>
+							</p>
+						</form>
+
+				</div>
+			</div>
+		</div>
+
+		<header class="header">
+			<div class="header__container">
+				<a href="" class="header__logo"><img src="img/logo.svg" alt="logo" /></a>
+				<div class="header__menu menu">
+					<nav class="menu__body">
+						<ul class="menu__list">
+							<li id="menu1" class="menu__item">
+								<a href="#" class="menu__link">Компанія</a>
+							</li>
+							<li id="menu2" class="menu__item">
+								<a href="#" class="menu__link">Продукція</a>
+							</li>
+							<li id="menu3" class="menu__item"><a href="#" class="menu__link">Статті</a></li>
+							<li id="menu4" class="menu__item"><a href="#" class="menu__link">Рішення</a></li>
+							<li id="menu5" class="menu__item">
+								<a href="#" class="menu__link">Контакти</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<div class="header__contacts contacts-header">
+					<a data-da=".menu__body,767.98" href="tel:0800000000" class="contacts-header__number">0 (800) 00-00-00</a>
+					<a data-popup=".popup" href="#" class="contacts-header__button">Зв’язатись</a>
+					<div data-da=".menu__body,767.98" class="contacts-header__launge launge-header">
+						<a href="#" id="button1" onclick="changeLanguage('ua',this)" class="launge-header__ua ">ua</a>
+						<a href="#" id="button2" onclick="changeLanguage('ru',this)" class="launge-header__ru">ru</a>
+					</div>
+					<button type="button" class="menu__icon icon-menu"><span></span></button>
+				</div>
+
+			</div>
+			<script>
+				const translations = {
+					ua: {
+						menu1: "Компанія",
+						menu2: "Продукція",
+						menu3: "Статті",
+						menu4: "Рішення",
+						menu5: "Контакти",
+					},
+					ru: {
+						menu1: "Компания",
+						menu2: "Продукция",
+						menu3: "Статьи",
+						menu4: "Решение",
+						menu5: "Контакты",
+					},
+				};
+
+				function changeLanguage(language, button) {
+					var buttons = document.getElementsByTagName("a");
+					for (var i = 0; i < buttons.length; i++) {
+						buttons[i].classList.remove("active");
+					}
+
+					button.classList.add("active");
+
+					const pageTitleElement = document.getElementById("menu1");
+					const pageTitleElement2 = document.getElementById("menu2");
+					const pageTitleElement3 = document.getElementById("menu3");
+					const pageTitleElement4 = document.getElementById("menu4");
+					const pageTitleElement5 = document.getElementById("menu5");
+
+					if (translations[language]) {
+						pageTitleElement.textContent = translations[language].menu1;
+						pageTitleElement2.textContent = translations[language].menu2;
+						pageTitleElement3.textContent = translations[language].menu3;
+						pageTitleElement4.textContent = translations[language].menu4;
+						pageTitleElement5.textContent = translations[language].menu5;
+					} else {
+						console.error(`Переклад для мови ${language} не знайдено.`);
+					}
+				}
+				document.addEventListener("DOMContentLoaded", function() {
+					// Знаходимо першу кнопку і робимо її активною
+					const firstButton = document.getElementById('button1');
+					firstButton.classList.add("active");
+
+					// Запускаємо функцію changeLanguage з параметром 'ua' для встановлення відповідних текстів
+					changeLanguage('ua', firstButton);
+				});
+			</script>
+		</header>
+
+		<main class="page">
+			<section class="main">
+				<div class="main__container">
+					<div id="myBlock" class="main__pop pop-main">
+						<div class="pop-main__text">Використовуючи цей сайт, ви даєте згоду на роботу з файлами .<a href="#">сookies</a></div>
+						<a href="#" id="toggleButton" class="pop-main__button">Згоден</a>
+					</div>
+					<!-- Оболонка слайдера -->
+					<div class="main__slider swiper">
+						<!-- Частина слайдера, що рухається -->
+						<div class="main__wrapper swiper-wrapper">
+							<!-- Слайд -->
+							<div class="main__slide slide-main swiper-slide">
+								<div class="slide-main__about about-main">
+									<h1 class="about-main__title">Meltem</h1>
+									<p class="about-main__text">
+										Meltem – це гарантовано якісне <br />
+										вентиляційне обладнання <br />
+										від німецького заводу.
+									</p>
+									<a href="#" class="about-main__button">Продукція</a>
+								</div>
+								<div class="slide-main__img">
+									<picture><source srcset="img/main.webp" type="image/webp"><img src="img/main.png" alt="вентилятор" /></picture>
+								</div>
+								<div class="slide-main__info info-main">
+									<div class="info-main__text">
+										Відцентровий витяжний <br />
+										вентилятор
+									</div>
+									<div class="info-main__model">Meltem V-II 30-N</div>
+									<a href="#" class="info-main__button">Детальніше</a>
+								</div>
+							</div>
+							<div class="main__slide slide-main swiper-slide">
+								<div class="slide-main__about about-main">
+									<h1 class="about-main__title">Meltem</h1>
+									<p class="about-main__text">
+										Meltem – це гарантовано якісне <br />
+										вентиляційне обладнання <br />
+										від німецького заводу.
+									</p>
+									<a href="#" class="about-main__button">Продукція</a>
+								</div>
+								<div class="slide-main__img">
+									<picture><source srcset="img/main.webp" type="image/webp"><img src="img/main.png" alt="вентилятор" /></picture>
+								</div>
+								<div class="slide-main__info info-main">
+									<div class="info-main__text">
+										Відцентровий витяжний <br />
+										вентилятор
+									</div>
+									<div class="info-main__model">Meltem V-II 30-N</div>
+									<a href="#" class="info-main__button">Детальніше</a>
+								</div>
+							</div>
+							<div class="main__slide slide-main swiper-slide">
+								<div class="slide-main__about about-main">
+									<h1 class="about-main__title">Meltem</h1>
+									<p class="about-main__text">
+										Meltem – це гарантовано якісне <br />
+										вентиляційне обладнання <br />
+										від німецького заводу.
+									</p>
+									<a href="#" class="about-main__button">Продукція</a>
+								</div>
+								<div class="slide-main__img">
+									<picture><source srcset="img/main.webp" type="image/webp"><img src="img/main.png" alt="вентилятор" /></picture>
+								</div>
+								<div class="slide-main__info info-main">
+									<div class="info-main__text">
+										Відцентровий витяжний <br />
+										вентилятор
+									</div>
+									<div class="info-main__model">Meltem V-II 30-N</div>
+									<a href="#" class="info-main__button">Детальніше</a>
+								</div>
+							</div>
+						</div>
+						<!-- Якщо потрібна пагінація -->
+						<div class="slide-main__pagination swiper-pagination"></div>
+					</div>
+				</div>
+
+			</section>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+			</div>
+		</footer>
+	</div>
+
+	<script src="js/app.min.js?_v=20231212164817"></script>
+</body>
+
+</html>
